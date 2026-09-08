@@ -1,0 +1,6 @@
+gap_regret=1.2327722503
+direct_regret=1.2337364221
+difference=-0.0009641718
+direct_mcse=0.0020753836
+max_oracle_gap=0.000e+00
+all reference v2.4 regret checks passed

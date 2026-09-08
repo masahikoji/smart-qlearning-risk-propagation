@@ -1,0 +1,7 @@
+diag_s1: exact=0.01972180 paired=0.01972180 diff=0.000e+00
+diag_s2: exact=0.47059979 paired=0.47063771 diff=3.792e-05
+cov_s1_s2: exact=-0.06685798 paired=-0.06686548 diff=-7.499e-06
+nonlinear_sq: exact=0.03728452 paired=0.03726838 diff=-1.614e-05
+linear_nonlinear_cross2: exact=-0.18754351 paired=-0.18752656 diff=1.695e-05
+full: exact=0.20634663 paired=0.20637037 diff=2.373e-05
+max_abs_diff= 3.7915667310983725e-05

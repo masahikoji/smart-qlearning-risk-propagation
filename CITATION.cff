@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying manuscript and the archived software release."
+title: "Code for Prediction-Risk Propagation and Pretest--Stein Improvement in Q-Learning for Sequential Multiple Assignment Randomised Trials"
+type: software
+authors:
+  - family-names: Kojima
+    given-names: Masahiro
+    affiliation: Chuo University
+version: 1.0.0
+date-released: 2026-09-09
+keywords:
+  - Q-learning
+  - SMART
+  - model averaging
+  - model selection
+  - prediction risk
+  - Stein shrinkage

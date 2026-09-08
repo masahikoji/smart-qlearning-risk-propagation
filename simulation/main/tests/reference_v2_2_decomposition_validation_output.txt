@@ -1,0 +1,2 @@
+max signed-quadratic error 2.6645352591003757e-15
+max terminal-zeta error 3.552713678800501e-15

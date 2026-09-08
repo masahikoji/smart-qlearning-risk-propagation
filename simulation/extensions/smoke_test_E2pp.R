@@ -1,0 +1,16 @@
+#!/usr/bin/env Rscript
+ca <- commandArgs(trailingOnly = FALSE)
+hit <- grep("^--file=", ca, value = TRUE)
+root <- if (length(hit)) dirname(normalizePath(sub("^--file=", "", hit[1]), mustWork = FALSE)) else normalizePath(getwd())
+source(file.path(root, "R", "e2pp_stein_functions.R"))
+control <- e2pp_control("smoke")
+options(warn = 2)
+e2pp_smoke_checks(control)
+cat("All focused E2'' pretest--Stein smoke checks passed.\n")
+md <- e2pp_transport_spec("multidirectional", control$rho)
+mc <- e2pp_transport_spec("collinear", control$rho)
+cat(sprintf("multidirectional r_eff = %.12f\n", md$reff))
+cat(sprintf("collinear        r_eff = %.12f\n", mc$reff))
+cat("Exact terminal ST(a=1)-SEL Gaussian-limit gaps:\n")
+print(data.frame(s = c(0,1,2,3,4,6),
+                 gap = vapply(c(0,1,2,3,4,6), function(s) e2pp_exact_terminal_ST_minus_SEL(s, 1), numeric(1))))

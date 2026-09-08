@@ -1,0 +1,8 @@
+args0 <- commandArgs(trailingOnly = FALSE)
+filearg <- sub("^--file=", "", grep("^--file=", args0, value = TRUE)[1])
+root <- dirname(normalizePath(filearg))
+Sys.setenv(SMART_PROGRAM_DIR = root); setwd(root)
+source(file.path(root, "R", "load_all.R"))
+run_theory_checks()
+out <- write_population_orthogonality_checks()
+print(out)

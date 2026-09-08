@@ -1,0 +1,17 @@
+args0 <- commandArgs(trailingOnly = FALSE)
+filearg <- sub("^--file=", "", grep("^--file=", args0, value = TRUE)[1])
+root <- dirname(normalizePath(filearg))
+Sys.setenv(SMART_PROGRAM_DIR = root); setwd(root)
+source(file.path(root, "R", "load_all.R"))
+args <- commandArgs(trailingOnly = TRUE)
+K <- if (length(args) >= 1L && nzchar(args[1])) as.integer(args[1]) else NULL
+Ndir <- if (length(args) >= 2L) as.integer(args[2]) else 200000L
+z <- scenario_calibration_table(K = K, N_direction = Ndir)
+out <- file.path(smart_dir("results", "summary"), "scenario_calibration.csv")
+write.csv(z, out, row.names = FALSE)
+manifest <- scenario_manifest_table(K)
+manifest_file <- file.path(smart_dir("results", "summary"), "scenario_manifest.csv")
+write.csv(manifest, manifest_file, row.names = FALSE)
+print(z)
+cat("\nWrote: ", out, "\n", sep = "")
+cat("Wrote: ", manifest_file, "\n", sep = "")
