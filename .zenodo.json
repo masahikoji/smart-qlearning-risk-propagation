@@ -1,0 +1,30 @@
+{
+  "title": "Code for Prediction-Risk Propagation and Model-Comparison Feedback in Q-Learning for Sequential Multiple Assignment Randomised Trials",
+  "upload_type": "software",
+  "version": "2.0.0",
+  "access_right": "open",
+  "language": "eng",
+  "creators": [
+    {
+      "name": "Kojima, Masahiro",
+      "affiliation": "Chuo University"
+    }
+  ],
+  "description": "Reproducibility code, reference outputs, and validation checks accompanying the manuscript 'Feedback-Aware Tuning of Recursive Q-Learning'. The repository contains the feedback-aware two-stage SMART simulation, Gaussian risk calculations, and the simulated ADHD propagation diagnostic.",
+  "keywords": [
+    "Q-learning",
+    "sequential multiple assignment randomised trial",
+    "dynamic treatment regime",
+    "model averaging",
+    "model comparison",
+    "prediction risk",
+    "Stein risk estimation"
+  ],
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/masahikoji/smart-qlearning-risk-propagation",
+      "relation": "isIdenticalTo",
+      "resource_type": "software"
+    }
+  ]
+}
