@@ -1,0 +1,55 @@
+{
+  "audit_date": "2026-09-11",
+  "numerical_core_version": "1.1.0",
+  "production_replay": {
+    "distinct_datasets": 60000,
+    "logrss_compared_numeric_values": 612,
+    "wald_compared_numeric_values": 612,
+    "gaussian_compared_numeric_values": 450,
+    "max_absolute_difference_from_saved_reference": 0.0
+  },
+  "manuscript_tables": {
+    "tables": 6,
+    "rows": 40,
+    "printed_result_or_MCSE_values": 224,
+    "matched": 224,
+    "mismatches": 0
+  },
+  "independent_fit_check": {
+    "cases": 72,
+    "max_candidate_coefficient_difference": 1.8540724511240114e-14,
+    "max_final_stage1_coefficient_difference": 1.199040866595169e-14,
+    "max_checked_numeric_difference": 1.716404796070492e-13
+  },
+  "unit_tests": {
+    "passed": 8,
+    "failed": 0
+  },
+  "gaussian_audit": {
+    "max_512_1024_change": 2.984279490192421e-13,
+    "max_FA_risk_identity_error": 4.04121180963557e-14,
+    "max_individual_risk_identity_error": 1.0302869668521453e-13
+  },
+  "supplemental_gaussian_audit": {
+    "orders": [256, 512],
+    "max_integral_change_original_audit": 4.377387341492067e-12,
+    "max_risk_identity_error_original_audit": 3.241851231905457e-14,
+    "max_integral_change_recheck_2026_09_11": 4.376943252282217e-12,
+    "max_risk_identity_error_recheck_2026_09_11": 3.197442310920451e-14
+  },
+  "safeguards_in_production_replay": {
+    "gram_fallbacks": 0,
+    "action_disagreements_with_reference": 0,
+    "transport_geometry_clips": 0
+  },
+  "github_sync": {
+    "branch": "feedback-aware-v2-sync",
+    "core_file_blob_verified": "feedback_tuning.py",
+    "note": "The GitHub blob SHA of feedback_tuning.py was checked against the exact audited local bytes."
+  },
+  "ADHD_primary": {
+    "status": "not rerun in the audit runtime",
+    "reason": "Rscript is not installed in the audit runtime. The repository contains the primary R analysis and its helper source; rerun with DTRlearn2 1.1 in R."
+  },
+  "scope": "Validation of the implemented two-stage E3-prime algorithm and the numerical configurations reported in the current manuscript; not a proof for arbitrary K-stage or response-gated SMARTs."
+}

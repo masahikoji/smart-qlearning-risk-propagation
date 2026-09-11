@@ -1,92 +1,78 @@
-# Prediction-risk propagation in SMART Q-learning
+# Feedback-Aware Tuning of Recursive Q-Learning
 
-This repository contains the code used for the numerical work in the manuscript
+This repository contains reproducibility materials for the manuscript
 
-**Prediction-Risk Propagation and Pretest--Stein Improvement in Q-Learning for Sequential Multiple Assignment Randomised Trials**.
+**Feedback-Aware Tuning of Recursive Q-Learning**.
 
-The code is split into the main simulation study, the additional simulations for the finite-library and pretest--Stein results, and the simulated ADHD SMART illustration. The analysis code uses the same recursive pseudo-outcome construction for model selection and model averaging as described in the manuscript.
+The current feedback-aware (FA) implementation is distributed in
+`simulation/feedback_aware/`. The repository also retains the earlier
+v1.0.0 simulation material under `simulation/main/` and
+`simulation/extensions/` so that the archived v1.0.0 release remains
+traceable. Those legacy simulations are not used to generate the current
+FA tables.
 
-## Software
+## Current FA simulation
 
-The simulation code uses base R. The ADHD analysis additionally requires the `DTRlearn2` package; the reported analysis was run with `DTRlearn2` 1.1 under R 4.3.0. The reference session information is saved in `application/adhd/sessionInfo_reference.txt`.
+The audited FA module reproduces the six numerical tables in the current
+main paper and Supplementary Material. Its numerical core is unchanged from
+the audited implementation; the packaging adds documentation, validation
+evidence, and the supplemental Gaussian-audit entry point.
 
-Python is not required for the analysis. It is used only by the independent reference checks in `simulation/main/tests/`.
-
-## Repository layout
-
-| Directory | Contents |
-| --- | --- |
-| `simulation/main/` | Two- and three-stage SMART simulations, generated-response diagnostics, treatment-boundary experiments, and exact error-decomposition checks |
-| `simulation/extensions/` | Canonical pretest--Stein calculations, transported effective-rank simulations, criterion-feedback control, fixed finite-library AIC experiment, and the focused E2'' experiment |
-| `application/adhd/` | Primary ADHD analysis, candidate-library sensitivity analysis, and exploratory broad-block pretest--Stein diagnostics |
-
-Each directory has its own README with the run commands and output files.
-
-## Quick validation
-
-After installing R and, for the ADHD part, `DTRlearn2`, run
+From `simulation/feedback_aware/`, use Python 3.11 or later:
 
 ```bash
-bash run_smoke_tests.sh
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m unittest discover -s tests -v
+python run_feedback_tuning.py smoke --workers 1 --output results/smoke
+python run_feedback_tuning.py paper --workers 3 --output results/paper
+python review/gaussian_audit.py --output results/supplement_gaussian
 ```
 
-The Python reference checks can also be run independently:
+The paper run uses four local signals, sample sizes 250, 1000 and 4000,
+and 5,000 independent datasets per cell. The log-RSS and quadratic
+implementations use the same 60,000 datasets. The library contains the nine
+penalty pairs in `{0.5,1,2}^2` plus the all-wide reference, with fixed
+`T = 2` and uniform prior weights.
 
-```bash
-cd simulation/main/tests
-python3 reference_v2_1_validation.py
-python3 reference_v2_2_decomposition_validation.py
-python3 reference_v2_3_paired_decomposition.py
-python3 reference_v2_4_regret_validation.py
-python3 reference_primary_truth_quadrature.py
-```
+`CODE_TO_MANUSCRIPT.md` gives the exact script-to-table mapping.
 
-## Reproducing the paper runs
+## Simulated ADHD diagnostic
 
-The production simulations are deliberately separated from the short smoke profiles so that pilot chunks cannot be mixed with the paper runs.
-
-Main SMART simulations:
-
-```bash
-cd simulation/main
-Rscript smoke_test.R
-Rscript calibrate_scenarios.R
-Rscript run_population_checks.R
-Rscript run_two_stage.R paper
-Rscript run_three_stage.R paper
-Rscript run_secondary.R 2 paper TRUE
-Rscript run_secondary.R 3 paper TRUE
-Rscript run_decomposition.R 2 paper "" TRUE
-Rscript run_decomposition.R 3 paper "" TRUE
-Rscript summarize.R
-```
-
-Additional simulations:
-
-```bash
-cd simulation/extensions
-Rscript smoke_test.R
-Rscript smoke_test_E2pp.R
-Rscript run_additional_simulation.R all paper FALSE
-Rscript run_E2pp_stein_simulation.R all paper FALSE
-```
-
-ADHD illustration:
+The diagnostic uses the simulated `adhd` data distributed with
+`DTRlearn2` 1.1. The primary analysis is:
 
 ```bash
 cd application/adhd
-Rscript run_adhd_sel_ma.R all 2000 8
-Rscript run_adhd_candidate_library_sensitivity.R all
-Rscript smoke_test_stein.R
-Rscript run_adhd_stein_additional.R
+Rscript run_adhd_sel_ma.R main
 ```
 
-The bootstrap core count in the first ADHD command may be changed for the local machine. The production simulation engines are chunked and can be restarted with the same command.
+The application is a propagation diagnostic, not a clinical validation of
+the FA tuning algorithm.
 
-## Data
+## Validation
 
-The illustrative data are the simulated `adhd` data set distributed with `DTRlearn2`. No original participant-level clinical data are included in this repository.
+The FA module contains unit tests, saved reference outputs, independent
+implementation checks, and a numerical audit of the Gaussian risk identity.
+The production simulation was independently replayed during the packaging
+audit and the manuscript table values were checked against the reproduced
+outputs.
 
-## Citation and archival metadata
+## Versions
 
-`CITATION.cff` and `.zenodo.json` are included for a GitHub release archived through Zenodo. The software DOI and the final article citation can be added after the first Zenodo release is created.
+- **v1.0.0**: initial repository release for the earlier
+  prediction-risk-propagation / pretest--Stein manuscript.
+- **v2.0.0**: current repository release for
+  *Feedback-Aware Tuning of Recursive Q-Learning*.
+
+The FA simulation module keeps its own internal numerical-core version
+(`simulation/feedback_aware/VERSION`) so that repository-release versioning
+is distinct from the implementation version used in the audit.
+
+## Data and citation
+
+No original participant-level clinical data are included. The ADHD example
+uses a publicly distributed simulated dataset. Please use `CITATION.cff` for
+software citation. Zenodo metadata are provided in `.zenodo.json` for the
+v2.0.0 release.
