@@ -39,7 +39,7 @@ Completed jobs can be resumed. Changes to source files or run settings require a
 
 `review/gaussian_audit.py` was newly supplied during the audit to fill the reproduction entry point named in the supplement. It is not presented as a recovered historical script. It uses the unchanged numerical core and recomputes the supplement's T=1,2,4 calculations at two quadrature orders.
 
-`reference_results/` preserves the original saved production results. A fresh full run in the audit reproduced all 1,674 compared numerical entries exactly. All 224 printed numerical results and Monte Carlo standard errors in the six tables match at their displayed precision. Selected audit evidence is in `validation/`; checksums are in `SHA256SUMS.txt`.
+`reference_results/` contains selected original production summaries used as replay baselines. A fresh full run in the audit reproduced all 1,674 compared numerical entries exactly. All 224 printed numerical results and Monte Carlo standard errors in the six tables match at their displayed precision. Selected audit evidence is in `validation/`; checksums for the distributed numerical core and retained reference summaries are in `SHA256SUMS.txt`.
 
 ## Model, target and interpretation
 
