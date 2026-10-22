@@ -1,0 +1,7 @@
+scenario_id,n,procedure,reps,estimate,mcse,base_seed,quadrature_order,evaluation_method,stabilize_tol,stabilization_count,b
+2s_smooth_terminal_local,250,AIC selection,20000,5.942425851157727,0.11995413820324241,260906,48,exact conditional integration + Gauss-Legendre,1e-10,0,4.899240785376423
+2s_smooth_terminal_local,250,Akaike weighting,20000,4.601738176123528,0.10103636131969371,260906,48,exact conditional integration + Gauss-Legendre,1e-10,0,4.899240785376423
+2s_smooth_terminal_local,500,AIC selection,20000,5.912121632217235,0.13156154014949067,260906,48,exact conditional integration + Gauss-Legendre,1e-10,0,4.899240785376423
+2s_smooth_terminal_local,500,Akaike weighting,20000,4.596159152464235,0.11555311965338987,260906,48,exact conditional integration + Gauss-Legendre,1e-10,0,4.899240785376423
+2s_smooth_terminal_local,1000,AIC selection,20000,6.03375066317465,0.1282312393010536,260906,48,exact conditional integration + Gauss-Legendre,1e-10,0,4.899240785376423
+2s_smooth_terminal_local,1000,Akaike weighting,20000,4.641020558448898,0.10886591574178706,260906,48,exact conditional integration + Gauss-Legendre,1e-10,0,4.899240785376423
