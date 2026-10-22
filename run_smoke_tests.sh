@@ -3,16 +3,32 @@ set -eu
 
 root=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 
-# Current feedback-aware implementation.
-fa="$root/simulation/feedback_aware"
-python3 -m unittest discover -s "$fa/tests" -v
-python3 "$fa/run_feedback_tuning.py" smoke --workers 1 --output "$fa/results/smoke"
-python3 "$fa/review/gaussian_audit.py" --output "$fa/results/supplement_gaussian"
+printf '%s\n' '== Main recursive Q-learning smoke test =='
+(
+  cd "$root/simulation/main"
+  Rscript smoke_test.R
+)
 
-# Primary ADHD diagnostic when R and DTRlearn2 are available.
+printf '%s\n' '== Independent Python reference checks =='
+for script in \
+  reference_v2_1_validation.py \
+  reference_v2_2_decomposition_validation.py \
+  reference_v2_3_paired_decomposition.py \
+  reference_v2_4_regret_validation.py \
+  reference_primary_truth_quadrature.py
+do
+  python3 "$root/simulation/main/tests/$script"
+done
+
 if command -v Rscript >/dev/null 2>&1 && \
    Rscript -e 'quit(save="no", status=if (requireNamespace("DTRlearn2", quietly=TRUE)) 0 else 1)' >/dev/null 2>&1; then
-  (cd "$root/application/adhd" && Rscript run_adhd_sel_ma.R main)
+  printf '%s\n' '== Simulated ADHD primary analysis =='
+  (
+    cd "$root/application/adhd"
+    Rscript run_adhd_sel_ma.R main
+  )
 else
-  printf '%s\n' 'Skipping ADHD diagnostic: Rscript and DTRlearn2 are required.'
+  printf '%s\n' 'Skipping ADHD analysis: Rscript and DTRlearn2 are required.'
 fi
+
+printf '%s\n' 'All v3.0.0 lightweight checks completed.'

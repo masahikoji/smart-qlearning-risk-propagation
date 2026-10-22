@@ -1,0 +1,47 @@
+{
+  "release_scope": "journal-neutral reproducibility materials",
+  "boundary_validation_program": "run_boundary_validation_exact.py",
+  "archived_summary": "boundary_validation.csv",
+  "settings": {
+    "sample_sizes": [
+      250,
+      500,
+      1000
+    ],
+    "replicates_per_sample_size": 20000,
+    "base_seed": 260906,
+    "quadrature_order": 48,
+    "evaluation_method": "exact conditional integration + Gauss-Legendre",
+    "gram_tolerance": 1e-10,
+    "stabilization_count": 0
+  },
+  "smooth_boundary_raw_arrays": {
+    "provenance": "original completed-run arrays; byte identity verified against the recorded final-run SHA-256 values",
+    "sha256": {
+      "smooth_boundary_raw_n250.npz": "304d042539aa2e67f304b66a65693be4271f6f7864d1f991349c682bece73b98",
+      "smooth_boundary_raw_n500.npz": "4829ccf933f54c42fa4e04e292d011e4f2e232077f9740619cbb7043510ba26a",
+      "smooth_boundary_raw_n1000.npz": "ea551dfc6775a3eb13de81f7ab74195ed80b821e34427d87587f85366d30037d"
+    }
+  },
+  "exact_tie_raw_arrays": {
+    "provenance": "deterministically regenerated from the final boundary-validation program with the stated seed schedule and numerical settings; summary means and MCSEs were checked against the archived full-precision boundary-validation CSV",
+    "generation_environment": {
+      "python": "3.13.5",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0"
+    },
+    "sha256": {
+      "exact_tie_raw_n250.npz": "298141ae0c5e8b66d331fe481c5d12649b28739fb18f126bba0b5780a5bc1cd7",
+      "exact_tie_raw_n500.npz": "a05edf17ed27c5e9f65ef2dbf0c4faf2633c7dbcffa018f2b82d95bcf8f65214",
+      "exact_tie_raw_n1000.npz": "21e9a64fcafb438be9029e9aa1149f44a96461503e265a02f231b4892dde38af"
+    }
+  },
+  "theory_constant_calculation": {
+    "program": "compute_boundary_theory_constants.py",
+    "output": "boundary_theory_constants.json",
+    "reported_rounded_constants": {
+      "AIC_selection": 5.92,
+      "Akaike_model_averaging": 4.527
+    }
+  }
+}

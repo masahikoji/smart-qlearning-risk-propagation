@@ -1,19 +1,19 @@
 cff-version: 1.2.0
-message: "If you use this software, please cite the archived software release and the accompanying manuscript."
-title: "Code for Prediction-Risk Propagation and Model-Comparison Feedback in Q-Learning for Sequential Multiple Assignment Randomised Trials"
+message: "If you use this software or its archived results, please cite the corresponding archived software release."
+title: "Reproducibility materials for risk propagation under model selection and averaging in recursive Q-learning"
 type: software
 authors:
   - family-names: Kojima
     given-names: Masahiro
     affiliation: Chuo University
-version: 2.0.0
-date-released: 2026-09-11
+version: 3.0.0
 repository-code: "https://github.com/masahikoji/smart-qlearning-risk-propagation"
+license: MIT
 keywords:
   - Q-learning
-  - SMART
-  - model averaging
-  - model comparison
-  - prediction risk
-  - Stein risk estimation
   - dynamic treatment regime
+  - sequential multiple assignment randomized trial
+  - model selection
+  - model averaging
+  - prediction risk
+  - pseudo-outcome
