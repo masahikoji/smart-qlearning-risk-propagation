@@ -1,8 +1,9 @@
 {
-  "title": "Code for Prediction-Risk Propagation and Model-Comparison Feedback in Q-Learning for Sequential Multiple Assignment Randomised Trials",
+  "title": "Reproducibility materials for risk propagation under model selection and averaging in recursive Q-learning",
   "upload_type": "software",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "access_right": "open",
+  "license": "MIT",
   "language": "eng",
   "creators": [
     {
@@ -10,15 +11,15 @@
       "affiliation": "Chuo University"
     }
   ],
-  "description": "Reproducibility code, reference outputs, and validation checks accompanying the manuscript 'Feedback-Aware Tuning of Recursive Q-Learning'. The repository contains the feedback-aware two-stage SMART simulation, Gaussian risk calculations, and the simulated ADHD propagation diagnostic.",
+  "description": "Reproducibility code, archived numerical outputs, and validation materials for research on risk propagation under model selection and model averaging in recursive Q-learning. The release includes recursive Q-learning simulations, Gaussian local-limit calculations, treatment-boundary validation, and a simulated ADHD SMART analysis.",
   "keywords": [
     "Q-learning",
-    "sequential multiple assignment randomised trial",
     "dynamic treatment regime",
+    "sequential multiple assignment randomized trial",
+    "model selection",
     "model averaging",
-    "model comparison",
     "prediction risk",
-    "Stein risk estimation"
+    "pseudo-outcome"
   ],
   "related_identifiers": [
     {
