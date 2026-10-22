@@ -1,0 +1,13 @@
+scenario,scenario_id,n,procedure,reps,estimate,mcse,base_seed,quadrature_order,evaluation_method,stabilize_tol,stabilization_count,b
+smooth boundary,2s_smooth_terminal_local,250,AIC selection,20000,5.942425851157727,0.11995413820324241,260906,48,exact conditional integration + Gauss-Legendre,1e-10,0,4.899240785376423
+smooth boundary,2s_smooth_terminal_local,250,Akaike weighting,20000,4.601738176123528,0.10103636131969371,260906,48,exact conditional integration + Gauss-Legendre,1e-10,0,4.899240785376423
+smooth boundary,2s_smooth_terminal_local,500,AIC selection,20000,5.912121632217235,0.13156154014949067,260906,48,exact conditional integration + Gauss-Legendre,1e-10,0,4.899240785376423
+smooth boundary,2s_smooth_terminal_local,500,Akaike weighting,20000,4.596159152464235,0.11555311965338987,260906,48,exact conditional integration + Gauss-Legendre,1e-10,0,4.899240785376423
+smooth boundary,2s_smooth_terminal_local,1000,AIC selection,20000,6.03375066317465,0.1282312393010536,260906,48,exact conditional integration + Gauss-Legendre,1e-10,0,4.899240785376423
+smooth boundary,2s_smooth_terminal_local,1000,Akaike weighting,20000,4.641020558448898,0.10886591574178706,260906,48,exact conditional integration + Gauss-Legendre,1e-10,0,4.899240785376423
+exact tie,2s_exact_tie_terminal,250,AIC selection,20000,3.1541964559308315,0.03548765920346886,260906,48,exact conditional integration + Gauss-Legendre,1e-10,0,0.0
+exact tie,2s_exact_tie_terminal,250,Akaike weighting,20000,3.013126621760187,0.03482664779492724,260906,48,exact conditional integration + Gauss-Legendre,1e-10,0,0.0
+exact tie,2s_exact_tie_terminal,500,AIC selection,20000,3.125742911136963,0.035734274181375675,260906,48,exact conditional integration + Gauss-Legendre,1e-10,0,0.0
+exact tie,2s_exact_tie_terminal,500,Akaike weighting,20000,2.992135156597406,0.03515869982573597,260906,48,exact conditional integration + Gauss-Legendre,1e-10,0,0.0
+exact tie,2s_exact_tie_terminal,1000,AIC selection,20000,3.0875302993585843,0.034757962285885645,260906,48,exact conditional integration + Gauss-Legendre,1e-10,0,0.0
+exact tie,2s_exact_tie_terminal,1000,Akaike weighting,20000,2.958661487545336,0.03419195283428639,260906,48,exact conditional integration + Gauss-Legendre,1e-10,0,0.0
